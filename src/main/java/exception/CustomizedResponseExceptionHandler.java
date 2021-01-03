@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.example.myrestfulservices.user.UserNotFoundException;
-
 @RestController
 //모든 컨트롤러가 실행되면 반드시 이 어노테이션을 갖고있는 빈이 실행,즉 등록
 @ControllerAdvice
