@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import com.example.myrestfulservices.user.service.UserDaoService;
 import exception.UserNotFoundException;
 import com.example.myrestfulservices.user.vo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+
 @RestController
 public class UserController {
 
+
     private UserDaoService service;
 
+    @Autowired
     private UserController(UserDaoService service) {
         this.service = service;
     }
@@ -35,6 +39,25 @@ public class UserController {
         return all;
     }
 
+    //    @GetMapping("/users/{id}")
+//    public EntityModel<User> retrieveOneUsers(@PathVariable int id) {
+//
+//        User user = service.fineOne(id);
+//        if (user == null) {
+//            throw new UserNotFoundException(String.format("ID[%s] not found", id));
+//
+//        }
+//
+//        //hateos
+//
+//        EntityModel<User> model = new EntityModel<>(user);
+//        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+//        model.add(linkTo.withRel("all-users"));
+//
+//
+//        return model;
+//    }
+
     @GetMapping("/users/{id}")
     public User retrieveOneUsers(@PathVariable int id) {
 
@@ -43,6 +66,7 @@ public class UserController {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
 
         }
+
         return user;
     }
 

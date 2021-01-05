@@ -6,15 +6,19 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonFilter("UserInfo")
+//@JsonFilter("UserInfo")
+@ApiModel(description = "사용자 상세 정보를 위한 도메인 객체")
 public class User {
 
     private Integer id;
